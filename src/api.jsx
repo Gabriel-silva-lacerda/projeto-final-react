@@ -73,6 +73,12 @@ export function PHOTOS_GET({ page, total, user }) {
   };
 }
 
+export function PHOTO_GETT(id) {
+  return {
+    url: `${API_URL}/api/photo/${id}`,
+  };
+}
+
 export function PHOTO_GET(id) {
   return {
     url: `${API_URL}/api/photo/${id}`,
@@ -92,7 +98,7 @@ export function COMMENT_POST(id, body) {
         "Content-Type": "application/json",
         Authorization: "Bearer " + window.localStorage.getItem("token"),
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     },
   };
 }
@@ -109,3 +115,40 @@ export function PHOTO_DELETE(id) {
   };
 }
 
+export function PASSWORD_LOST(body) {
+  return {
+    url: API_URL + "/api/password/lost",
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
+
+export function PASSWORD_RESET(body) {
+  return {
+    url: API_URL + "/api/password/reset",
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
+
+export function STATS_GET() {
+  return {
+    url: API_URL + "/api/stats",
+    options: {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + window.localStorage.getItem("token"),
+      },
+    },
+  };
+}

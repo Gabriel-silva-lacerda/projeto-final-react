@@ -13,8 +13,11 @@
 }
 
 .forms {
+    align-self: center;
+    justify-self: center;
     max-width: 30rem;
     padding: 1rem;
+
 }
 
 @media (max-width: 40rem) {
